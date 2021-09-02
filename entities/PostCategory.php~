@@ -2,11 +2,10 @@
 namespace entities;
 
 /**
- * @Entity
- * @Table(name="author")
- */
-class Author
-{
+* @Entity
+* @Table(name="post_category")
+*/
+class PostCategory {
     /**
      * @Id
      * @GeneratedValue
@@ -15,16 +14,11 @@ class Author
     private $id;
 
     /** @Column(type="string") **/
-    private $first_name;
+    private $name;
 
-    /** @Column(type="string") **/
-    private $last_name;
-
-    /** @Column(type="string") **/
-    private $email;
     /**
-     * One author can write many post
-     * @OneToMany(targetEntity="Post", mappedBy="author", cascade={"all"})
+     * One post_category can write many post
+     * @OneToMany(targetEntity="Post", mappedBy="post_category", cascade={"all"})
      * @var Doctrine\Common\Collection\ArrayCollection
      */
     private $posts;
@@ -40,51 +34,27 @@ class Author
     }
 
     /**
-     * Set firstName.
+     * Set name.
      *
-     * @param string $firstName
+     * @param string $name
      *
-     * @return Author
+     * @return PostCategory
      */
-    public function setFirstName($firstName)
+    public function setName($name)
     {
-        $this->first_name = $firstName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get firstName.
+     * Get name.
      *
      * @return string
      */
-    public function getFirstName()
+    public function getName()
     {
-        return $this->first_name;
-    }
-
-    /**
-     * Set lastName.
-     *
-     * @param string $lastName
-     *
-     * @return Author
-     */
-    public function setLastName($lastName)
-    {
-        $this->last_name = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName.
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->last_name;
+        return $this->name;
     }
     /**
      * Constructor
@@ -99,7 +69,7 @@ class Author
      *
      * @param \entities\Post $post
      *
-     * @return Author
+     * @return PostCategory
      */
     public function addPost(\entities\Post $post)
     {
@@ -128,29 +98,5 @@ class Author
     public function getPosts()
     {
         return $this->posts;
-    }
-
-    /**
-     * Set email.
-     *
-     * @param string $email
-     *
-     * @return Author
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email.
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 }
