@@ -6,20 +6,20 @@ require "entities/PostCategory.php";
 
 // Create and persist a new Author
 $author = (new entities\Author())
-    ->setFirstName("cepot")
-    ->setLastName("kurnia")
-    ->setEmail("cepot.kurnia@gmail.com");
+    ->setFirstName("agus")
+    ->setLastName("budiman")
+    ->setEmail("agus.budiman@gmail.com");
 
 $entity_manager->persist($author);
 
 $post_category = (new entities\PostCategory())
-    ->setName("pendidikan");
+    ->setName("hiburan");
 $entity_manager->persist($post_category);
 
 // Create a new post
 $post = (new entities\Post())
-    ->setTitle("pejuang kemerdekaan")
-    ->setText("This is a test post")
+    ->setTitle("makan kerupuk")
+    ->setText("lomba makan kerupuk tingkat kecamatan")
     ->setAuthor($author)
     ->setPostCategory($post_category)
     ->setDate(new DateTime());
