@@ -1,6 +1,6 @@
 <?php
 class Rumus {
-	public int $persen;
+	public $persen;
 	function keuntungan(int $hargaBeli, int $hargaJual): void {
 		$selisih=abs($hargaBeli-$hargaJual);
 		$persen=($selisih/$hargaBeli)*100;
