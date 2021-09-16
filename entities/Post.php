@@ -14,15 +14,20 @@ class Post
      */
     private $id;
 
-    /** @Column(type="string") **/
+    /**
+     * @Column(type="string")
+     */
     private $title;
 
-    /** @Column(type="text") **/
+    /**
+     * @Column(type="text")
+     */
     private $text;
 
-    /** @Column(type="datetime") **/
+    /**
+     * @Column(type="datetime")
+     */
     private $date;
-
     /**
      * Many posts belong to one author
      * @ManyToOne(targetEntity="Author", inversedBy="posts")
@@ -30,14 +35,6 @@ class Post
      * @var \entities\Author
      */
     private $author;
-
-    /**
-     * Many posts belong to one post_category
-     * @ManyToOne(targetEntity="PostCategory", inversedBy="posts")
-     * @JoinColumn(name="cat_id", referencedColumnName="id", nullable=false)
-     * @var \entities\PostCategory
-     */
-    private $post_category;
 
     /**
      * Get id.
@@ -143,29 +140,5 @@ class Post
     public function getAuthor()
     {
         return $this->author;
-    }
-
-    /**
-     * Set postCategory.
-     *
-     * @param \entities\PostCategory $postCategory
-     *
-     * @return Post
-     */
-    public function setPostCategory(\entities\PostCategory $postCategory)
-    {
-        $this->post_category = $postCategory;
-
-        return $this;
-    }
-
-    /**
-     * Get postCategory.
-     *
-     * @return \entities\PostCategory
-     */
-    public function getPostCategory()
-    {
-        return $this->post_category;
     }
 }
