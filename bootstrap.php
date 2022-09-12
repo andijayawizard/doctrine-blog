@@ -13,7 +13,7 @@ $configuration = Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration
 $connection_parameters = [
     'dbname' => 'doctrine_blog',
     'user' => 'root',
-    'password' => '!@12QWaszx',
+    'password' => 'r00t',
     'host' => 'localhost',
     'driver' => 'pdo_mysql'
 ];
