@@ -28,13 +28,21 @@ class Post
      * @Column(type="datetime")
      */
     private $date;
+
+    /**
+     * @ManyToOne(targetEntity="PostCategory", inversedBy="posts")
+     * @JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
+     * @var \entities\PostCategory
+     */
+    private $category_id;
+
     /**
      * Many posts belong to one author
      * @ManyToOne(targetEntity="Author", inversedBy="posts")
      * @JoinColumn(name="author_id", referencedColumnName="id", nullable=false)
      * @var \entities\Author
      */
-    private $author;
+    private $author_id;
 
     /**
      * Get id.
@@ -140,5 +148,77 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set category.
+     *
+     * @param \entities\PostCategory $category
+     *
+     * @return Post
+     */
+    public function setCategory(\entities\PostCategory $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category.
+     *
+     * @return \entities\PostCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set categoryId.
+     *
+     * @param \entities\PostCategory $categoryId
+     *
+     * @return Post
+     */
+    public function setCategoryId(\entities\PostCategory $categoryId)
+    {
+        $this->category_id = $categoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryId.
+     *
+     * @return \entities\PostCategory
+     */
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+    /**
+     * Set authorId.
+     *
+     * @param \entities\Author $authorId
+     *
+     * @return Post
+     */
+    public function setAuthorId(\entities\Author $authorId)
+    {
+        $this->author_id = $authorId;
+
+        return $this;
+    }
+
+    /**
+     * Get authorId.
+     *
+     * @return \entities\Author
+     */
+    public function getAuthorId()
+    {
+        return $this->author_id;
     }
 }

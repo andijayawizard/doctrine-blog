@@ -32,7 +32,7 @@ class Author
 
     /**
      * @ManyToOne(targetEntity="Level", inversedBy="author")
-     * @JoinColumn(name="level_id", referencedColumnName="id", nullable=false)
+     * @JoinColumn(name="level_id", referencedColumnName="id", nullable=true)
      * @var \entities\Level
      */
     private $level_id;

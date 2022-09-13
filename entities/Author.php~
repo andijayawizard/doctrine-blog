@@ -32,7 +32,7 @@ class Author
 
     /**
      * @ManyToOne(targetEntity="Level", inversedBy="author")
-     * @JoinColumn(name="level_id", referencedColumnName="id", nullable=false)
+     * @JoinColumn(name="level_id", referencedColumnName="id", nullable=true)
      * @var \entities\Level
      */
     private $level_id;
@@ -136,5 +136,29 @@ class Author
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    /**
+     * Set levelId.
+     *
+     * @param \entities\Level $levelId
+     *
+     * @return Author
+     */
+    public function setLevelId(\entities\Level $levelId)
+    {
+        $this->level_id = $levelId;
+
+        return $this;
+    }
+
+    /**
+     * Get levelId.
+     *
+     * @return \entities\Level
+     */
+    public function getLevelId()
+    {
+        return $this->level_id;
     }
 }
