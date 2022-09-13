@@ -137,28 +137,4 @@ class Author
     {
         return $this->posts;
     }
-
-    /**
-     * Set levelId.
-     *
-     * @param \entities\Level $levelId
-     *
-     * @return Author
-     */
-    public function setLevelId(\entities\Level $levelId)
-    {
-        $this->level_id = $levelId;
-
-        return $this;
-    }
-
-    /**
-     * Get levelId.
-     *
-     * @return \entities\Level
-     */
-    public function getLevelId()
-    {
-        return $this->level_id;
-    }
 }

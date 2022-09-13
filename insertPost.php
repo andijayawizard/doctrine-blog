@@ -2,6 +2,11 @@
 require "bootstrap.php";
 require "entities/Author.php";
 require "entities/Post.php";
+require "entities/PostCategory.php";
+
+$postCategory = (new entities\PostCategory())
+    ->setName("agama");
+$entity_manager->persist($postCategory);
 
 // Create and persist a new Author
 $author = (new entities\Author())
